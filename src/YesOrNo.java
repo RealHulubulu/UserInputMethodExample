@@ -1,33 +1,39 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
-//Add the following code snippet before calling the method
-    //int modifiableInt = 0;
-    //System.out.println("Do another action? Y/N");
-    // char q = scan.next().charAt(0);
 
-//Below is the method call
-    //YesOrNo yesOrNo = new YesOrNo(q, modifiableInt);
-
-//Below allows for converting user input with exception handling included
-    //modifiableInt = yesOrNo.getInputIntOut(); //this sets modifiableInt to a new value (++) based on 'y' input
 
 public class YesOrNo {
 
     Scanner scan = new Scanner(System.in);
     boolean anotherOperation = true;
-    public int inputIntOut = 0;
+    public ArrayList inputArrayListOut = new ArrayList(1);
 
-    public YesOrNo(char inputYN, int inputInt){
+
+
+    public YesOrNo(char inputYN, ArrayList inputArrayList) {
 
         while (anotherOperation) {
 
             if (inputYN == 'y' || inputYN == 'Y') {
-                inputInt++; //insert other logic if necessary
-                inputIntOut = inputInt;
+                //insert logic
+
+                inputArrayListOut = new ArrayList<>(inputArrayList);
+
+                for(int i = 0; i < inputArrayListOut.size(); i++){
+                    if(inputArrayListOut.get(i) instanceof Double){
+                        inputArrayListOut.set(i, 3.0);
+                    }else if(inputArrayListOut.get(i) instanceof String){
+                        inputArrayListOut.set(i,"New String");
+                    }else if(inputArrayListOut.get(i) instanceof Integer){
+                        inputArrayListOut.set(i, 2);
+                    }
+                }
                 anotherOperation = false;
 
             } else if (inputYN == 'n' || inputYN == 'N') {
                 //insert logic
+                inputArrayListOut = inputArrayList;
                 anotherOperation = false;
 
             } else {
@@ -36,13 +42,13 @@ public class YesOrNo {
                 inputYN = scan.next().charAt(0);
 
             }
-            //scan.nextLine();
         }
         anotherOperation = true;
     }
 
-    public int getInputIntOut(){
-        return inputIntOut;
+
+    public ArrayList getInputArrayListOut() {
+        return inputArrayListOut;
     }
 
 }

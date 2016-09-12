@@ -1,27 +1,31 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        int modifiableInt = 0;
+        Object object1 = 1.5; //change this to String, Integer, or Double
+        Object object2 = "Old String";
+        Object object3 = 1;
+        //...
+
+        ArrayList modifiableArrayList = new ArrayList();
+        modifiableArrayList.add(object1);
+        modifiableArrayList.add(object2);
+        modifiableArrayList.add(object3);
+        //...
+
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Welcome");
-        System.out.println("Do another action? Y/N");
-        char q = scan.next().charAt(0);
-        YesOrNo yesOrNo = new YesOrNo(q, modifiableInt);
+        System.out.println("Welcome \nThis program converts a user input of Y or N into a change in logic. \nFor instance, changing an int from 0 to 1");
+        System.out.println("The original ArrayList: " + modifiableArrayList);
+        System.out.println("\nDo another action? Y/N");
+        char inputYesNo = scan.next().charAt(0);
 
-        System.out.println(yesOrNo.getInputIntOut());
-        System.out.println("The original int: " + modifiableInt);
-        System.out.println("The modified int: " + (modifiableInt = yesOrNo.getInputIntOut()));
-
-        if (modifiableInt > 0) {
-            System.out.println("Would do operation taking in new int value");
-        }else if(modifiableInt == 0){
-            System.out.println("Would not do operation as int value remained 0");
-
-        }
+        YesOrNo yesOrNo = new YesOrNo(inputYesNo, modifiableArrayList);
+        System.out.println("\nThe modified ArrayList: " + (modifiableArrayList = yesOrNo.getInputArrayListOut()));
+        System.out.println("\nHere is the array with new object: " + modifiableArrayList);
 
     }
 }
