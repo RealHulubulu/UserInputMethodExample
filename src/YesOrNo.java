@@ -2,13 +2,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 public class YesOrNo {
 
-    Scanner scan = new Scanner(System.in);
-    boolean anotherOperation = true;
-    public ArrayList inputArrayListOut = new ArrayList(1);
-
+    private Scanner scan = new Scanner(System.in);
+    private boolean anotherOperation = true;
+    private ArrayList inputArrayListOut = new ArrayList(1);
 
 
     public YesOrNo(char inputYN, ArrayList inputArrayList) {
@@ -16,16 +14,18 @@ public class YesOrNo {
         while (anotherOperation) {
 
             if (inputYN == 'y' || inputYN == 'Y') {
-                //insert logic
 
                 inputArrayListOut = new ArrayList<>(inputArrayList);
-
-                for(int i = 0; i < inputArrayListOut.size(); i++){
-                    if(inputArrayListOut.get(i) instanceof Double){
+                //insert logic
+                for (int i = 0; i < inputArrayListOut.size(); i++) {
+                    if (inputArrayListOut.get(i) instanceof Double) {
+                        //insert logic
                         inputArrayListOut.set(i, 3.0);
-                    }else if(inputArrayListOut.get(i) instanceof String){
-                        inputArrayListOut.set(i,"New String");
-                    }else if(inputArrayListOut.get(i) instanceof Integer){
+                    } else if (inputArrayListOut.get(i) instanceof String) {
+                        //insert logic
+                        inputArrayListOut.set(i, "NewString");
+                    } else if (inputArrayListOut.get(i) instanceof Integer) {
+                        //insert logic
                         inputArrayListOut.set(i, 2);
                     }
                 }
