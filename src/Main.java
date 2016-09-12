@@ -18,7 +18,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Welcome \nThis program converts a user input of Y or N into a change in logic. \nFor instance, changing an int from 0 to 1");
+        System.out.println("Welcome \nThis program converts a user input of Y or N into a variable change. \nFor instance, changing an int from 0 to 1");
         System.out.println("The original ArrayList: " + modifiableArrayList);
         System.out.println("\nDo another action? Y/N");
         char inputYesNo = scan.next().charAt(0);
